@@ -24,7 +24,11 @@ router.post('/signUp', async (req, res) => {
     newUser
       .save()
       .then(() => {
-        res.json({ username: newUser.username, count: newUser.count });
+        res.json({
+          username: newUser.username,
+          count: newUser.count,
+          id: newUser._id,
+        });
       })
       .catch(error => {
         console.log(error);
@@ -50,7 +54,7 @@ router.post('/signIn', async (req, res) => {
       throw new Error('Wrong credentials.');
     }
 
-    res.json({ username: user.username, count: user.count });
+    res.json({ username: user.username, count: user.count, id: user._id });
   } catch (err) {
     res.json(err.message).status(400);
   }

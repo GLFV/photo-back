@@ -11,3 +11,7 @@ app.listen(3000, console.log('Server listing on port 3000'));
 database.connection();
 
 app.use(require('./router/auth.router'));
+
+app.use(require('./router/image.router'));
+
+app.use(require('./router/user.router'));
